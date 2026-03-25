@@ -39,24 +39,29 @@ img { max-width: 100%; display: block; }
 /* ─── Utility ────────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Staggered children — cada hijo directo anima con un pequeño delay */
+.reveal.revealed > * {
+  animation: none;
+}
+
 .animate-in {
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.9s var(--transition) forwards;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
 }
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.3s; }
-.delay-3 { animation-delay: 0.5s; }
-.delay-4 { animation-delay: 0.7s; }
-.delay-5 { animation-delay: 1s; }
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.35s; }
+.delay-4 { animation-delay: 0.5s; }
+.delay-5 { animation-delay: 0.75s; }
 
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
@@ -664,15 +669,24 @@ img { max-width: 100%; display: block; }
   justify-content: center;
   width: 44px; height: 44px;
   border-radius: 12px;
-  border: 1px solid rgba(247,243,238,0.15);
-  color: rgba(247,243,238,0.6);
+  border: 1px solid rgba(247,243,238,0.25);
+  background: rgba(247,243,238,0.08);
+  color: rgba(247,243,238,0.75);
   text-decoration: none;
-  transition: all 0.3s;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.social-link svg { width: 18px; height: 18px; }
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  display: block;
+}
 .social-link:hover {
   border-color: var(--terra);
   color: var(--terra);
+  background: rgba(196,123,90,0.1);
   transform: translateY(-3px);
 }
 

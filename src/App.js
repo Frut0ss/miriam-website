@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
-function useReveal(threshold = 0.15) {
+function useReveal(threshold = 0.05) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -10,7 +10,7 @@ function useReveal(threshold = 0.15) {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -60px 0px' }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -188,7 +188,15 @@ function EnQueAyudo() {
         </p>
         <div className="areas__grid">
           {AREAS.map((a, i) => (
-            <div key={i} className="area-card" style={{ '--delay': `${i * 0.08}s` }}>
+            <div
+              key={i}
+              className="area-card"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(20px)',
+                transition: `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`
+              }}
+            >
               <div className="area-card__icon">{a.icon}</div>
               <h3>{a.title}</h3>
               <p>{a.desc}</p>
@@ -218,7 +226,15 @@ function ComoTrabajo() {
         </h2>
         <div className="steps">
           {STEPS.map((s, i) => (
-            <div key={i} className="step" style={{ '--delay': `${i * 0.12}s` }}>
+            <div
+              key={i}
+              className="step"
+              style={{
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(20px)',
+                transition: `opacity 0.5s ease ${i * 0.12}s, transform 0.5s ease ${i * 0.12}s`
+              }}
+            >
               <div className="step__left">
                 <div className="step__num">{s.num}</div>
                 <div className="step__connector" />
