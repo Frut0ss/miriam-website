@@ -148,12 +148,30 @@ function QuienSoy() {
 
 // ─── En qué ayudo ─────────────────────────────────────────────────────────────
 const AREAS = [
-  { icon: '🌀', title: 'Ansiedad y sobrepensamiento', desc: 'Cuando la cabeza no para y el cuerpo lo acusa.' },
-  { icon: '🌊', title: 'Gestión emocional', desc: 'Aprender a sentir sin que las emociones te desborden.' },
-  { icon: '🧭', title: 'Bloqueos y falta de dirección', desc: 'Cuando sabes que quieres cambiar algo pero no sabes por dónde.' },
-  { icon: '🪞', title: 'Autoexigencia y presión', desc: 'Soltar el perfeccionismo y tratarte con más amabilidad.' },
-  { icon: '🤝', title: 'Relaciones y límites', desc: 'Aprender a relacionarte desde un lugar más sano.' },
-  { icon: '🌱', title: 'Momentos de cambio', desc: 'Acompañarte en transiciones importantes de tu vida.' },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2C6 8 6 16 12 22M12 2c6 6 6 14 0 20M12 2v20M2 12h20"/></svg>,
+    title: 'Ansiedad y sobrepensamiento', desc: 'Cuando la cabeza no para y el cuerpo lo acusa.'
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 21.6C6 18 2 13.8 2 9a6 6 0 0 1 10-4.47A6 6 0 0 1 22 9c0 4.8-4 9-10 12.6z"/></svg>,
+    title: 'Gestión emocional', desc: 'Aprender a sentir sin que las emociones te desborden.'
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>,
+    title: 'Bloqueos y falta de dirección', desc: 'Cuando sabes que quieres cambiar algo pero no sabes por dónde.'
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2L12 12M17 2h5v5"/></svg>,
+    title: 'Autoexigencia y presión', desc: 'Soltar el perfeccionismo y tratarte con más amabilidad.'
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    title: 'Relaciones y límites', desc: 'Aprender a relacionarte desde un lugar más sano.'
+  },
+  {
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>,
+    title: 'Momentos de cambio', desc: 'Acompañarte en transiciones importantes de tu vida.'
+  },
 ];
 
 function EnQueAyudo() {
@@ -201,8 +219,10 @@ function ComoTrabajo() {
         <div className="steps">
           {STEPS.map((s, i) => (
             <div key={i} className="step" style={{ '--delay': `${i * 0.12}s` }}>
-              <div className="step__num">{s.num}</div>
-              <div className="step__connector" />
+              <div className="step__left">
+                <div className="step__num">{s.num}</div>
+                <div className="step__connector" />
+              </div>
               <div className="step__body">
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
@@ -211,9 +231,18 @@ function ComoTrabajo() {
           ))}
         </div>
         <div className="como-trabajo__formats">
-          <div className="format-pill">🌍 Online</div>
-          <div className="format-pill">🏢 Presencial</div>
-          <div className="format-pill">🕐 Horario flexible</div>
+          <div className="format-pill">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3c-2.5 2.5-2.5 11.5 0 14M10 3c2.5 2.5 2.5 11.5 0 14M3 10h14"/></svg>
+            Online
+          </div>
+          <div className="format-pill">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg>
+            Presencial
+          </div>
+          <div className="format-pill">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2.5"/></svg>
+            Horario flexible
+          </div>
         </div>
       </div>
     </section>
@@ -259,15 +288,15 @@ function Contacto() {
             <span className="btn__arrow">→</span>
           </a>
           <div className="contacto__socials">
-            <a href="#" aria-label="Instagram" className="social-link">
+            <button aria-label="Instagram" className="social-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok" className="social-link">
+            </button>
+            <button aria-label="TikTok" className="social-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-            </a>
-            <a href="#" aria-label="LinkedIn" className="social-link">
+            </button>
+            <button aria-label="LinkedIn" className="social-link">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 10v7m0-5a3 3 0 0 1 6 0v5"/></svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
