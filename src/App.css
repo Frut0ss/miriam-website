@@ -39,8 +39,8 @@ img { max-width: 100%; display: block; }
 /* ─── Utility ────────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
+  transform: translateY(48px);
+  transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .reveal.revealed {
   opacity: 1;
@@ -54,8 +54,8 @@ img { max-width: 100%; display: block; }
 
 .animate-in {
   opacity: 0;
-  transform: translateY(16px);
-  animation: fadeUp 0.55s ease forwards;
+  transform: translateY(36px);
+  animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 .delay-1 { animation-delay: 0.05s; }
 .delay-2 { animation-delay: 0.15s; }
