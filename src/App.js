@@ -194,7 +194,7 @@ function EnQueAyudo() {
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`
+                transition: `opacity 0.35s ease ${i * 0.05}s, transform 0.35s ease ${i * 0.05}s`
               }}
             >
               <div className="area-card__icon">{a.icon}</div>
@@ -232,7 +232,7 @@ function ComoTrabajo() {
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease ${i * 0.12}s, transform 0.5s ease ${i * 0.12}s`
+                transition: `opacity 0.35s ease ${i * 0.08}s, transform 0.35s ease ${i * 0.08}s`
               }}
             >
               <div className="step__left">
