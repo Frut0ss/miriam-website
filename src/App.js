@@ -113,11 +113,11 @@ function QuienSoy() {
           <div className="quien-soy__photo-wrap">
             <div className="quien-soy__photo-frame">
               <div className="quien-soy__photo-placeholder">
-                <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="60" cy="45" rx="28" ry="32" fill="currentColor" opacity="0.15" />
-                  <path d="M10 140 C10 100 110 100 110 140" fill="currentColor" opacity="0.12" />
-                </svg>
-                <span>Tu foto aquí</span>
+                <img
+                  src="/foto.png"
+                  alt="Miriam Zamora"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </div>
             </div>
             <div className="quien-soy__photo-deco" />
@@ -371,26 +371,19 @@ function Contacto() {
           </div>
 
           <div className="contacto__socials">
-            <button aria-label="Instagram" className="social-link">
+            <a
+              href="https://www.instagram.com/conmiriamzamora/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="social-link"
+            >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="5" />
                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
               </svg>
-            </button>
-
-            <button aria-label="TikTok" className="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-              </svg>
-            </button>
-
-            <button aria-label="LinkedIn" className="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <rect x="2" y="2" width="20" height="20" rx="4" />
-                <path d="M7 10v7M7 7v.01M12 10v7m0-5a3 3 0 0 1 6 0v5" />
-              </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
