@@ -293,8 +293,6 @@ function Contacto() {
         body: formData,
       });
 
-      const text = await res.text();
-
       if (res.ok) {
         setEnviado(true);
         e.target.reset();
