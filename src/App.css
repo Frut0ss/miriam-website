@@ -24,7 +24,9 @@
   --transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-body);
@@ -32,6 +34,7 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
 }
 
 img { max-width: 100%; display: block; }
@@ -39,15 +42,17 @@ img { max-width: 100%; display: block; }
 /* ─── Utility ────────────────────────────────────────────────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(48px);
-  transition: opacity 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(60px) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 .reveal.revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-/* Staggered children — cada hijo directo anima con un pequeño delay */
 .reveal.revealed > * {
   animation: none;
 }
@@ -66,6 +71,18 @@ img { max-width: 100%; display: block; }
 @keyframes fadeUp {
   to { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* ─── Section commons ────────────────────────────────────────────────────── */
 .section {
@@ -594,6 +611,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto;
 }
 
+
 .contacto__bg-deco {
   position: absolute;
   top: -40%; right: -20%;
@@ -758,3 +776,96 @@ img { max-width: 100%; display: block; }
 /* ─── Selection ───────────────────────────────────────────────────────────── */
 ::selection { background: rgba(196,123,90,0.2); color: var(--ink); }
 
+
+/* ─── Formulario contacto ───────────────────────────────────────────── */
+
+.contacto__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 520px;
+  margin: 0 auto 48px;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed .contacto__form {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contacto__form input,
+.contacto__form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(247,243,238,0.15);
+  background: rgba(255,255,255,0.04);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(6px);
+}
+
+.contacto__form input::placeholder,
+.contacto__form textarea::placeholder {
+  color: rgba(247,243,238,0.4);
+}
+
+.contacto__form input:focus,
+.contacto__form textarea:focus {
+  border-color: var(--terra);
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 1px rgba(196,123,90,0.25);
+}
+
+.contacto__form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contacto__form .btn {
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+}
+
+.contacto__form .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.contacto__form p {
+  font-size: 14px;
+  color: var(--sage-l);
+  margin-top: 8px;
+  animation: fadeUp 0.4s ease;
+}
+
+/* ─── MOBILE FIRST ANIMATIONS ───────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  .reveal {
+    transform: translateY(40px) scale(0.985);
+    transition-duration: 0.9s;
+  }
+
+  .reveal.revealed {
+    transform: translateY(0) scale(1);
+  }
+
+  .reveal.revealed > * {
+    animation: fadeUpSoft 0.8s ease forwards;
+  }
+
+  .reveal.revealed > *:nth-child(1) { animation-delay: 0.05s; }
+  .reveal.revealed > *:nth-child(2) { animation-delay: 0.1s; }
+  .reveal.revealed > *:nth-child(3) { animation-delay: 0.15s; }
+  .reveal.revealed > *:nth-child(4) { animation-delay: 0.2s; }
+  .reveal.revealed > *:nth-child(5) { animation-delay: 0.25s; }
+}

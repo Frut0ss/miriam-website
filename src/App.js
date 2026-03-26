@@ -114,8 +114,8 @@ function QuienSoy() {
             <div className="quien-soy__photo-frame">
               <div className="quien-soy__photo-placeholder">
                 <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <ellipse cx="60" cy="45" rx="28" ry="32" fill="currentColor" opacity="0.15"/>
-                  <path d="M10 140 C10 100 110 100 110 140" fill="currentColor" opacity="0.12"/>
+                  <ellipse cx="60" cy="45" rx="28" ry="32" fill="currentColor" opacity="0.15" />
+                  <path d="M10 140 C10 100 110 100 110 140" fill="currentColor" opacity="0.12" />
                 </svg>
                 <span>Tu foto aquí</span>
               </div>
@@ -149,27 +149,27 @@ function QuienSoy() {
 // ─── En qué ayudo ─────────────────────────────────────────────────────────────
 const AREAS = [
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2C6 8 6 16 12 22M12 2c6 6 6 14 0 20M12 2v20M2 12h20"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2C6 8 6 16 12 22M12 2c6 6 6 14 0 20M12 2v20M2 12h20" /></svg>,
     title: 'Ansiedad y sobrepensamiento', desc: 'Cuando la cabeza no para y el cuerpo lo acusa.'
   },
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 21.6C6 18 2 13.8 2 9a6 6 0 0 1 10-4.47A6 6 0 0 1 22 9c0 4.8-4 9-10 12.6z"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 21.6C6 18 2 13.8 2 9a6 6 0 0 1 10-4.47A6 6 0 0 1 22 9c0 4.8-4 9-10 12.6z" /></svg>,
     title: 'Gestión emocional', desc: 'Aprender a sentir sin que las emociones te desborden.'
   },
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>,
     title: 'Bloqueos y falta de dirección', desc: 'Cuando sabes que quieres cambiar algo pero no sabes por dónde.'
   },
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M22 2L12 12M17 2h5v5"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2a10 10 0 1 0 10 10" /><path d="M22 2L12 12M17 2h5v5" /></svg>,
     title: 'Autoexigencia y presión', desc: 'Soltar el perfeccionismo y tratarte con más amabilidad.'
   },
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>,
     title: 'Relaciones y límites', desc: 'Aprender a relacionarte desde un lugar más sano.'
   },
   {
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>,
+    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /><circle cx="12" cy="12" r="3" /></svg>,
     title: 'Momentos de cambio', desc: 'Acompañarte en transiciones importantes de tu vida.'
   },
 ];
@@ -248,15 +248,15 @@ function ComoTrabajo() {
         </div>
         <div className="como-trabajo__formats">
           <div className="format-pill">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 3c-2.5 2.5-2.5 11.5 0 14M10 3c2.5 2.5 2.5 11.5 0 14M3 10h14"/></svg>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7" /><path d="M10 3c-2.5 2.5-2.5 11.5 0 14M10 3c2.5 2.5 2.5 11.5 0 14M3 10h14" /></svg>
             Online
           </div>
           <div className="format-pill">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="7" width="14" height="10" rx="2"/><path d="M7 7V5a3 3 0 0 1 6 0v2"/></svg>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="7" width="14" height="10" rx="2" /><path d="M7 7V5a3 3 0 0 1 6 0v2" /></svg>
             Presencial
           </div>
           <div className="format-pill">
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2.5"/></svg>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l2.5 2.5" /></svg>
             Horario flexible
           </div>
         </div>
@@ -269,7 +269,10 @@ function ComoTrabajo() {
 function Contacto() {
   const [ref, visible] = useReveal(0.1);
   const [copied, setCopied] = useState(false);
-  const email = 'miriam@ejemplo.com';
+  const [enviado, setEnviado] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const email = 'info@conmiriamzamora.es';
 
   const copy = () => {
     navigator.clipboard.writeText(email).then(() => {
@@ -278,18 +281,87 @@ function Contacto() {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const res = await fetch('https://api.conmiriamzamora.es/contacto.php', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const text = await res.text();
+
+      if (res.ok) {
+        setEnviado(true);
+        e.target.reset();
+      } else {
+        alert('Error al enviar el mensaje');
+      }
+    } catch (error) {
+      alert('Error de conexión');
+    }
+
+    setLoading(false);
+  };
+
   return (
     <section className="section contacto" id="contacto">
       <div className={`reveal ${visible ? 'revealed' : ''}`} ref={ref}>
         <div className="contacto__inner">
           <div className="contacto__bg-deco" />
           <div className="section__label light">Contacto</div>
+
           <h2 className="section__title light">
             ¿Empezamos<br /><em>a hablar?</em>
           </h2>
+
           <p className="contacto__text">
             No necesitas tenerlo todo claro. Un mensaje es suficiente.
           </p>
+
+          {/* FORMULARIO */}
+          <form onSubmit={handleSubmit} className="contacto__form">
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Tu email"
+              required
+            />
+
+            <textarea
+              name="mensaje"
+              placeholder="Cuéntame qué necesitas..."
+              required
+            />
+
+            <button
+              type="submit"
+              className="btn btn--primary btn--large"
+              disabled={loading}
+            >
+              {loading ? 'Enviando...' : 'Enviar mensaje'}
+              <span className="btn__arrow">→</span>
+            </button>
+
+            {enviado && (
+              <p style={{ marginTop: '10px', color: '#fff' }}>
+                ✅ Mensaje enviado correctamente
+              </p>
+            )}
+          </form>
+
+          {/* EMAIL EXISTENTE */}
           <div className="contacto__email-block">
             <span className="contacto__email-label">Email</span>
             <div className="contacto__email-row">
@@ -299,19 +371,27 @@ function Contacto() {
               </button>
             </div>
           </div>
-          <a href={`mailto:${email}`} className="btn btn--primary btn--large">
-            Escríbeme ahora
-            <span className="btn__arrow">→</span>
-          </a>
+
           <div className="contacto__socials">
             <button aria-label="Instagram" className="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="5" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
             </button>
+
             <button aria-label="TikTok" className="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
             </button>
+
             <button aria-label="LinkedIn" className="social-link">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 10v7m0-5a3 3 0 0 1 6 0v5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <rect x="2" y="2" width="20" height="20" rx="4" />
+                <path d="M7 10v7M7 7v.01M12 10v7m0-5a3 3 0 0 1 6 0v5" />
+              </svg>
             </button>
           </div>
         </div>
@@ -319,7 +399,6 @@ function Contacto() {
     </section>
   );
 }
-
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer() {
   return (
