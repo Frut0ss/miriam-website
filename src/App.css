@@ -72,16 +72,6 @@ img { max-width: 100%; display: block; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeUpSoft {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 
 /* ─── Section commons ────────────────────────────────────────────────────── */
@@ -787,13 +777,13 @@ img { max-width: 100%; display: block; }
   margin: 0 auto 48px;
 
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 40px, 0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.revealed .contacto__form {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .contacto__form input,
@@ -848,24 +838,19 @@ img { max-width: 100%; display: block; }
 
 /* ─── MOBILE FIRST ANIMATIONS ───────────────────────────────── */
 
+
 @media (max-width: 768px) {
 
   .reveal {
-    transform: translateY(40px) scale(0.985);
-    transition-duration: 0.9s;
+    transform: translate3d(0, 40px, 0);
+    transition-duration: 0.75s;
   }
 
   .reveal.revealed {
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0);
   }
 
-  .reveal.revealed > * {
-    animation: fadeUpSoft 0.8s ease forwards;
-  }
-
-  .reveal.revealed > *:nth-child(1) { animation-delay: 0.05s; }
-  .reveal.revealed > *:nth-child(2) { animation-delay: 0.1s; }
-  .reveal.revealed > *:nth-child(3) { animation-delay: 0.15s; }
-  .reveal.revealed > *:nth-child(4) { animation-delay: 0.2s; }
-  .reveal.revealed > *:nth-child(5) { animation-delay: 0.25s; }
-}
+  /* IMPORTANTE: quitamos animaciones en hijos */
+.reveal.revealed > * {
+  animation: none !important;
+};}
