@@ -20,14 +20,29 @@ function useReveal(threshold = 0.05) {
 
 // ─── Nav ─────────────────────────────────────────────────────────────────────
 function Nav() {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // ✅ ahora sí cambia
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Detectar scroll
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
     window.addEventListener('scroll', onScroll);
+    onScroll(); // 👈 importante
+
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Bloquear scroll cuando menú abierto
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [menuOpen]);
 
   const links = [
     { label: 'Sobre mí', href: '#quien-soy' },
@@ -42,13 +57,22 @@ function Nav() {
   };
 
   return (
-    <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
-      <div className="nav__logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+    <nav className={`nav ${(scrolled || menuOpen) ? 'nav--scrolled' : ''}`}>
+      <div
+        className="nav__logo"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
         Miriam<span>.</span>
       </div>
-      <button className={`nav__burger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+
+      <button
+        className={`nav__burger ${menuOpen ? 'open' : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Menu"
+      >
         <span /><span /><span />
       </button>
+
       <ul className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
         {links.map(l => (
           <li key={l.href}>
@@ -56,7 +80,9 @@ function Nav() {
           </li>
         ))}
         <li>
-          <a href="mailto:miriam@ejemplo.com" className="nav__cta">Pide tu sesión</a>
+          <a href="mailto:miriam@ejemplo.com" className="nav__cta">
+            Pide tu sesión
+          </a>
         </li>
       </ul>
     </nav>
@@ -125,18 +151,15 @@ function QuienSoy() {
           <div className="quien-soy__text">
             <h2 className="section__title">
               Hola, soy Miriam.<br />
-              <em>Psicóloga.</em>
+              <em>Psicóloga General Sanitaria</em>
             </h2>
             <p>
-              Trabajo con personas que sienten que algo no encaja, que están agotadas de pensar demasiado, o que simplemente quieren entenderse mejor.
-            </p>
-            <p>
-              Mi enfoque es cercano, sin tecnicismos. Creo que la terapia puede ser un espacio real, donde de verdad te puedas soltar.
+              Acompaño a personas que sienten que algo no termina de encajar, que viven con demasiada carga mental o que simplemente quieren entenderse mejor.
             </p>
             <p>
               No necesitas tenerlo todo claro para empezar. <strong>Empezamos desde donde estás.</strong>
             </p>
-            <a href="mailto:miriam@ejemplo.com" className="btn btn--outline">
+            <a href="mailto:info@conmiriamzamora.es" className="btn btn--outline">
               Escríbeme →
             </a>
           </div>
@@ -150,27 +173,27 @@ function QuienSoy() {
 const AREAS = [
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2C6 8 6 16 12 22M12 2c6 6 6 14 0 20M12 2v20M2 12h20" /></svg>,
-    title: 'Ansiedad y sobrepensamiento', desc: 'Cuando la cabeza no para y el cuerpo lo acusa.'
+    title: 'Ansiedad y sobrecarga mental', desc: 'Cuando la mente no se detiene, el descanso no es suficiente y todo empieza a pasar factura.'
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 21.6C6 18 2 13.8 2 9a6 6 0 0 1 10-4.47A6 6 0 0 1 22 9c0 4.8-4 9-10 12.6z" /></svg>,
-    title: 'Gestión emocional', desc: 'Aprender a sentir sin que las emociones te desborden.'
+    title: 'Gestión emocional', desc: 'Comprender lo que sientes y aprender a regularlo de forma más adaptativa.'
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><circle cx="12" cy="12" r="3" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" /></svg>,
-    title: 'Bloqueos y falta de dirección', desc: 'Cuando sabes que quieres cambiar algo pero no sabes por dónde.'
+    title: 'Bloqueo y falta de claridad', desc: 'Etapas en las que sientes que algo no funciona como debería, pero no logras identificar con claridad qué cambiar ni cómo hacerlo.'
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2a10 10 0 1 0 10 10" /><path d="M22 2L12 12M17 2h5v5" /></svg>,
-    title: 'Autoexigencia y presión', desc: 'Soltar el perfeccionismo y tratarte con más amabilidad.'
+    title: 'Momentos de cambio', desc: 'Acompañarte en transiciones importantes de tu vida.'
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>,
-    title: 'Relaciones y límites', desc: 'Aprender a relacionarte desde un lugar más sano.'
+    title: 'Relaciones y establecimiento de límites', desc: 'Desarrollar relaciones más sanas, aprendiendo a comunicar y a posicionarte desde un lugar más seguro.'
   },
   {
     icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" /><circle cx="12" cy="12" r="3" /></svg>,
-    title: 'Momentos de cambio', desc: 'Acompañarte en transiciones importantes de tu vida.'
+    title: 'Rendimiento y gestión de la presión', desc: 'Optimizar tu rendimiento —en el deporte o en tu vida personal— aprendiendo a manejar la presión, los nervios y las expectativas.'
   },
 ];
 
@@ -210,9 +233,9 @@ function EnQueAyudo() {
 
 // ─── Cómo trabajaremos ────────────────────────────────────────────────────────
 const STEPS = [
-  { num: '01', title: 'Nos contactamos', desc: 'Me escribes por email y hablamos un poco. Sin compromiso, sin formularios raros.' },
-  { num: '02', title: 'Primera sesión gratuita', desc: 'Nos conocemos, me cuentas lo que te pasa y vemos si hay feeling para trabajar juntas.' },
-  { num: '03', title: 'Empezamos', desc: 'Trabajo contigo de forma continua, adaptado a tu ritmo y a lo que necesitas.' },
+  { num: '01', title: 'Primer contacto', desc: 'Puedes escribirme por email y tener un primer contacto conmigo. Resolveremos dudas iniciales y valoraremos cómo puedo ayudarte.' },
+  { num: '02', title: 'Primera sesión', desc: 'Realizaremos una primera sesión en la que podrás contarme tu situación con más detalle. Será un espacio para conocernos y valorar si encajamos para iniciar el proceso.' },
+  { num: '03', title: 'Inicio del proceso', desc: 'Si decidimos continuar, comenzaremos un trabajo terapéutico adaptado a tu ritmo, tus necesidades y tus objetivos.' },
 ];
 
 function ComoTrabajo() {

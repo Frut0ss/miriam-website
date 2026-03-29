@@ -184,11 +184,9 @@ img { max-width: 100%; display: block; }
   transition: all 0.4s ease;
 }
 .nav--scrolled {
-  background: rgba(247, 243, 238, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 16px clamp(20px, 5vw, 60px);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+  background: #f7f3ee; /* sólido */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .nav__logo {
@@ -848,3 +846,22 @@ img { max-width: 100%; display: block; }
 .reveal.revealed > * {
   animation: none !important;
 };}
+
+/* Menú móvil fullscreen limpio */
+.nav__links {
+  z-index: 150;
+}
+
+/* Cuando está abierto */
+.nav__links--open {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Evita glitches con navbar */
+.nav.nav--scrolled .nav__links--open {
+  background: rgba(247,243,238,0.98);
+}
